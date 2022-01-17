@@ -15,10 +15,10 @@ img {
   width: 100px;
 }
 
-.player {
+.player img {
   border: 3px solid slateblue;
 }
 
-.opponent {
+.opponent img {
   border: 3px solid sienna;
 }

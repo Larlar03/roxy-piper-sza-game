@@ -1,9 +1,5 @@
 let game = document.getElementById("game");
-let score = document.getElementById("score");
 let restartButton = document.getElementById("restart-button");
-let cardContainer = document.createElement("div");
-cardContainer.classList.add("card-container");
-game.append(cardContainer);
 
 showCards();
 
@@ -18,21 +14,21 @@ function showCards() {
   piper.setAttribute("index", "piper");
   sza.setAttribute("index", "sza");
 
-  roxy.innerHTML = `<img src='roxy.jpg' alt='Roxy Mitchell' />`;
-  piper.innerHTML = `<img src='piper.jpg' alt='Piper Halliwell' />`;
-  sza.innerHTML = `<img src='sza.jpeg' alt='Singer SZA' />`;
+  roxy.innerHTML = `<h2>Roxy</h2> <br />
+  <img src='roxy.jpg' alt='Roxy Mitchell' />`;
+  piper.innerHTML = `<h2>Piper</h2> <br />
+  <img src='piper.jpg' alt='Piper Halliwell' />`;
+  sza.innerHTML = `<h2>SZA</h2> <br />
+  <img src='sza.jpeg' alt='Singer SZA' />`;
 
   roxy.addEventListener("click", gamePlay);
 
-  cardContainer.appendChild(roxy);
-  cardContainer.appendChild(piper);
-  cardContainer.appendChild(sza);
+  game.appendChild(roxy);
+  game.appendChild(piper);
+  game.appendChild(sza);
 
-  let restartButton = document.createElement("button");
-  restartButton.classList.add("restart-button");
-  restartButton.innerHTML = "Restart";
-  game.append(restartButton);
-  restartButton.addEventListener("click", restartGame);
+  let resultText = document.createElement("h3");
+  game.appendChild(resultText);
 }
 
 function gamePlay() {
@@ -109,7 +105,9 @@ function showResults() {
   }
 }
 
+restartButton.addEventListener("click", restartGame);
+
 function restartGame() {
-  cardContainer.innerHTML = "";
+  game.innerHTML = "";
   showCards();
 }
