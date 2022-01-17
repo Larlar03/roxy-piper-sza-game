@@ -77,21 +77,21 @@ function showResults() {
   let draw = "It's a draw.";
 
   if (player === "Roxy" && opponent === "Piper") {
-    resultText.innerHTML = `You have chosen ${player} and the computer has chosen ${opponent} . <span class="result">${lose}</span>`;
+    resultText.innerHTML = `You have chosen <span class="player-colour">${player}</span> and the computer has chosen ${opponent}. <span class="result">${lose}</span>`;
   } else if (player === "Roxy" && opponent === "Sza") {
-    resultText.innerHTML = `You have chosen ${player}  and the computer has chosen ${opponent} . <span class="result">${win}</span>`;
+    resultText.innerHTML = `You have chosen <span class="player-colour">${player}</span> and the computer has chosen ${opponent}. <span class="result">${win}</span>`;
   } else if (player === "Roxy" && opponent === "Roxy") {
     resultText.innerHTML = `You and the computer have both chosen ${player}. <span class="result">${draw}</span>`;
   } else if (player === "Piper" && opponent === "Roxy") {
-    resultText.innerHTML = `You have chose ${player} and the computer has chosen ${opponent} . <span class="result">${win}</span>`;
+    resultText.innerHTML = `You have chosen <span class="player-colour">${player}</span> and the computer has chosen ${opponent}. <span class="result">${win}</span>`;
   } else if (player === "Piper" && opponent === "Sza") {
-    resultText.innerHTML = `You have chose ${player} and the computer has chosen ${opponent} . <span class="result">${lose}</span>`;
+    resultText.innerHTML = `You have chosen <span class="player-colour">${player}</span> and the computer has chosen ${opponent}. <span class="result">${lose}</span>`;
   } else if (player === "Piper" && opponent === "Piper") {
     resultText.innerHTML = `You and the computer have both chosen ${player}. <span class="result">${draw}</span>`;
   } else if (player === "Sza" && opponent === "Roxy") {
-    resultText.innerHTML = `You have chose ${player} and the computer has chosen ${opponent} . <span class="result">${lose}</span>`;
+    resultText.innerHTML = `You have chosen <span class="player-colour">${player}</span> and the computer has chosen ${opponent}. <span class="result">${lose}</span>`;
   } else if (player === "Sza" && opponent === "Piper") {
-    resultText.innerHTML = `You have chose ${player} and the computer has chosen ${opponent} . <span class="result">${win}</span>`;
+    resultText.innerHTML = `You have chose <span class="player-colour">${player}</span> and the computer has chosen ${opponent}. <span class="result">${win}</span>`;
   } else if (player === "Sza" && opponent === "Sza") {
     resultText.innerHTML = `You and the computer have both chosen ${player}. <span class="result">${draw}</span>`;
   }

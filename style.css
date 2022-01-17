@@ -56,27 +56,39 @@ h2 {
 }
 
 .card img {
-  width: 90%;
+  width: 85%;
   border-radius: 100%;
+  cursor: pointer;
 }
 
 .player img {
-  width: 90%;
+  width: 85%;
   border-radius: 100%;
-  border: 5px solid blueviolet;
+  border: 5px solid #8338ec;
+  cursor: pointer;
 }
 
 .opponent img {
-  width: 90%;
+  width: 85%;
   border-radius: 100%;
-  border: 5px solid greenyellow;
+  border: 5px solid #b7bfcc;
+  cursor: pointer;
+}
+
+img {
+  box-shadow: 2px 2px 10px rgba(117, 116, 116, 0.1);
 }
 
 h3 {
   width: 100%;
+  min-height: 70px;
   line-height: 1.5;
   font-size: 1rem;
   margin: 20px 0 35px 0;
+}
+
+.player-colour {
+  color: #8338ec;
 }
 
 .result {
@@ -90,7 +102,21 @@ h3 {
   text-align: center;
 }
 
-.restart-button {
+button {
+  display: block;
+  margin: 20px auto;
+  background: #9d4edd;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 0.8rem;
+  box-shadow: 2px 2px 10px rgba(117, 116, 116, 0.1);
+}
+
+button:hover {
+  background: #a95ee6;
+  cursor: pointer;
 }
 
 footer {
@@ -106,9 +132,9 @@ footer {
   font-size: 0.8rem;
 }
 .repo-link a {
-  color: #4361ee;
+  color: #9d4edd;
   text-decoration: none;
 }
 .repo-link a:hover {
-  color: #80a1d4;
+  color: #a95ee6;
 }
