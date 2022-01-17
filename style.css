@@ -14,3 +14,11 @@ header {
 img {
   width: 100px;
 }
+
+.player {
+  border: 3px solid slateblue;
+}
+
+.opponent {
+  border: 3px solid sienna;
+}

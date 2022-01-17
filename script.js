@@ -1,15 +1,13 @@
 let game = document.getElementById("game");
-let playButton = document.getElementById("play-button");
 let score = document.getElementById("score");
+let restartButton = document.getElementById("restart-button");
 let cardContainer = document.createElement("div");
 cardContainer.classList.add("card-container");
 game.append(cardContainer);
 
-playButton.addEventListener("click", showCards);
+showCards();
 
 function showCards() {
-  game.removeChild(playButton);
-
   let roxy = document.createElement("div");
   let piper = document.createElement("div");
   let sza = document.createElement("div");
@@ -38,9 +36,12 @@ function showCards() {
 }
 
 function gamePlay() {
+  allCards = Array.from(document.querySelectorAll(".card"));
+
+  allCards.forEach((card) => card.removeEventListener("click", gamePlay));
+
   let choices = ["roxy", "piper", "sza"];
   let opponent = choices[Math.floor(Math.random() * choices.length)];
-  console.log(opponent);
   let player = this;
   gameResults(player, opponent);
 }
@@ -51,7 +52,6 @@ function gameResults(player, opponent) {
     if (card.getAttribute("index") === opponent) {
       card.classList.add("opponent");
       card.classList.remove("card");
-      card.remove();
     }
   });
 
@@ -59,11 +59,57 @@ function gameResults(player, opponent) {
   player.classList.remove("card");
   console.log(opponent);
 
-  //if statement if player = roxy and opponent = roxy and so forth
-  //Add win or lose class to players card tos tyle
-  //Display win or lose message
+  showResults();
+}
+
+function showResults() {
+  let playerCard = document.getElementsByClassName("player");
+  let opponentCard = document.getElementsByClassName("opponent");
+
+  let player = playerCard[0].getAttribute("index");
+  let opponent = opponentCard[0].getAttribute("index");
+  console.log(player + " " + opponent);
+
+  if (player === "roxy" && opponent === "piper") {
+    console.log(
+      `You have chosen ${player} and the computer has chosen ${opponent} . The computer wins.`
+    );
+  } else if (player === "roxy" && opponent === "sza") {
+    console.log(
+      `You have chosen ${player}  and the computer has chosen ${opponent} . You win.`
+    );
+  } else if (player === "roxy" && opponent === "Roxy") {
+    console.log(
+      `You and the computer have both chosen ${player}. It's a draw.`
+    );
+  } else if (player === "piper" && opponent === "roxy") {
+    console.log(
+      `You have chose ${player} and the computer has chosen ${opponent} . You win`
+    );
+  } else if (player === "piper" && opponent === "sza") {
+    console.log(
+      `You have chose ${player} and the computer has chosen ${opponent} . The computer wins`
+    );
+  } else if (player === "piper" && opponent === "piper") {
+    console.log(
+      `You and the computer have both chosen ${player}. It's a draw.`
+    );
+  } else if (player === "sza" && opponent === "roxy") {
+    console.log(
+      `You have chose ${player} and the computer has chosen ${opponent} . The computer wins.`
+    );
+  } else if (player === "sza" && opponent === "piper") {
+    console.log(
+      `You have chose ${player} and the computer has chosen ${opponent} . You win.`
+    );
+  } else if (player === "sza" && opponent === "sza") {
+    console.log(
+      `You and the computer have both chosen ${player}. It's a draw.`
+    );
+  }
 }
 
 function restartGame() {
-  console.log("restart game button click");
+  cardContainer.innerHTML = "";
+  showCards();
 }
