@@ -42,20 +42,26 @@ function gamePlay() {
   let opponent = choices[Math.floor(Math.random() * choices.length)];
   console.log(opponent);
   let player = this;
-  player.classList.add("player");
-  player.classList.remove("card");
-
-  allCards = Array.from(document.querySelectorAll(".card"));
-  console.log(allCards);
-  allCards.forEach((card) => card.remove());
-
-  gameResults(opponent);
+  gameResults(player, opponent);
 }
 
-function gameResults(opponent) {
+function gameResults(player, opponent) {
+  allCards = Array.from(document.querySelectorAll(".card"));
+  allCards.forEach((card) => {
+    if (card.getAttribute("index") === opponent) {
+      card.classList.add("opponent");
+      card.classList.remove("card");
+      card.remove();
+    }
+  });
+
+  player.classList.add("player");
+  player.classList.remove("card");
   console.log(opponent);
-  if (player.index === "roxy") {
-  }
+
+  //if statement if player = roxy and opponent = roxy and so forth
+  //Add win or lose class to players card tos tyle
+  //Display win or lose message
 }
 
 function restartGame() {
