@@ -1,0 +1,16 @@
+header {
+  background-color: pink;
+}
+
+#game {
+  background-color: cadetblue;
+}
+
+.card-container,
+.result-container {
+  background-color: darkseagreen;
+}
+
+img {
+  width: 100px;
+}
