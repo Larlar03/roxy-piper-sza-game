@@ -91,7 +91,7 @@ function showResults() {
   } else if (player === "Sza" && opponent === "Roxy") {
     resultText.innerHTML = `You have chosen <span class="player-colour">${player}</span> and the computer has chosen ${opponent}. <span class="result">${lose}</span>`;
   } else if (player === "Sza" && opponent === "Piper") {
-    resultText.innerHTML = `You have chose <span class="player-colour">${player}</span> and the computer has chosen ${opponent}. <span class="result">${win}</span>`;
+    resultText.innerHTML = `You have chosen <span class="player-colour">${player}</span> and the computer has chosen ${opponent}. <span class="result">${win}</span>`;
   } else if (player === "Sza" && opponent === "Sza") {
     resultText.innerHTML = `You and the computer have both chosen ${player}. <span class="result">${draw}</span>`;
   }
