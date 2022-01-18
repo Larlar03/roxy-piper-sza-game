@@ -18,6 +18,7 @@ function showCards() {
   roxy.classList.add("roxy", "card");
   piper.classList.add("piper", "card");
   sza.classList.add("sza", "card");
+  //Create an attribute name "index" for each card and assign if the name of the character on the card.
   roxy.setAttribute("index", "Roxy");
   piper.setAttribute("index", "Piper");
   sza.setAttribute("index", "Sza");
@@ -29,6 +30,7 @@ function showCards() {
   sza.innerHTML = `<h2>SZA <span class="description">(Singer)</span></h2> 
   <img src='sza.png' alt='Singer SZA (singer)' />`;
 
+  //Add a click event to the 3 cards, that calls the gamePlay function
   roxy.addEventListener("click", gamePlay);
   piper.addEventListener("click", gamePlay);
   sza.addEventListener("click", gamePlay);
@@ -39,17 +41,25 @@ function showCards() {
 }
 
 function gamePlay() {
+  //Create an array of all elements with the class "card" (the 3 cards).
   allCards = Array.from(document.querySelectorAll(".card"));
 
+  //When this function runs (a card has been clicked), remove the click event listener from all cards.
   allCards.forEach((card) => card.removeEventListener("click", gamePlay));
 
+  //Pick a random character for the opponent out of the choices array. Assign it to a variable.
   let choices = ["Roxy", "Piper", "Sza"];
   let opponent = choices[Math.floor(Math.random() * choices.length)];
+  //Assign the current card clicked to a "player" variable
   let player = this;
+
+  //Pass the player and opponent into the next function.
   gameResults(player, opponent);
 }
 
 function gameResults(player, opponent) {
+  //Create an array from the 3 cards, and cycle through them.
+  //If the "index" value of the card is the same as the "opponent" variable, remove the "card" class and add a "opponent class".
   allCards = Array.from(document.querySelectorAll(".card"));
   allCards.forEach((card) => {
     if (card.getAttribute("index") === opponent) {
@@ -58,6 +68,7 @@ function gameResults(player, opponent) {
     }
   });
 
+  //For the player card (current card clicked), add a "player" class and remove the "card class".
   player.classList.add("player");
   player.classList.remove("card");
   console.log(opponent);
@@ -66,16 +77,21 @@ function gameResults(player, opponent) {
 }
 
 function showResults() {
+  //Add the cards with the class of "player" and "opponent" to 2 variables.
   let playerCard = document.getElementsByClassName("player");
   let opponentCard = document.getElementsByClassName("opponent");
 
+  //Assign the value of each cards "index" attribute to a "player" and "opponent" variable.
   let player = playerCard[0].getAttribute("index");
   let opponent = opponentCard[0].getAttribute("index");
+
   let resultText = document.querySelector("h3");
+
   let win = "You win!";
   let lose = "You lose!";
   let draw = "It's a draw.";
 
+  //If statement that determins the results of the rock, paper, scissors game.
   if (player === "Roxy" && opponent === "Piper") {
     resultText.innerHTML = `You have chosen <span class="player-colour">${player}</span> and the computer has chosen ${opponent}. <span class="result">${lose}</span>`;
   } else if (player === "Roxy" && opponent === "Sza") {
@@ -97,8 +113,11 @@ function showResults() {
   }
 }
 
+//Add an click event to the restart button.
 restartButton.addEventListener("click", restartGame);
 
+//When the restart button is click, clear the inner HTML of the game and card container element.
+//Run the first function to restart the game.
 function restartGame() {
   game.innerHTML = "";
   cardContainer.innerHTML = "";
