@@ -4,6 +4,6 @@ A JavaScript rock, paper, scissors game with a pop culture spin. The game uses t
 
 ## Link
 
-https://roxy-piper-sza-game.netlify.app/
+[https://roxy-piper-sza-game.netlify.app/](https://roxy-piper-sza-game.vercel.app/)
 
 <img src="rps-preview.png" alt="Preview image"  width="600">
